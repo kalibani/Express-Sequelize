@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <%-include partial/head%>
+<body>
+  <h1>Add Data Teacher</h1>
+
+<table border = '1'>
+<form action="/teacher/add" method="POST">
+  <label>First_name : <input type="text" name="first_name" placeholder="first name" </label>
+  <label>Last_name : <input type="text" name="last_name" placeholder="last name"</label>
+  <label>Email : <input type="email" name="email" placeholder="email"</label>
+  <label>Subjects : <label>
+      <select name="SubjectId">
+        <% data.forEach(row=> { %>
+           <option value="<%=row.id%>"><%= row.subject_name%></option>
+        <%})%>
+      </select>
+  <input type="submit" value="SUBMIT">
+</form>
+</table>
+</body>
+</html>

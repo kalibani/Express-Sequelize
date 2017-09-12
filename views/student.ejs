@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <%- include partial/head %>
+  <body>
+    <h1>Students Data</h1>
+    <a href="/student/add">Student Add</a>
+    <a href="/">back to home</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%data.forEach( row => { %>
+          <tr>
+            <td><%=row.id%></td>
+            <td>&nbsp;<%=row.first_name%></td>
+            <td>&nbsp;<%=row.last_name%></td>
+            <td>&nbsp;<%=row.email%></td>
+            <td>&nbsp;
+              <a href="student/edit/<%=row.id%>">Edit</a>
+              <a href="student/delete/<%=row.id%>">Delete</a>
+            </td>
+          </tr>
+        <% })%>
+      </tbody>
+    </table>
+  </body>
+</html>

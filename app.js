@@ -1,0 +1,20 @@
+const express = require('express')
+const app = express()
+const Sequelize = require('sequelize');
+const pg = require('pg')
+const Index = require('./routes/index')
+const Teacher = require('./routes/teacher')
+const Subject = require('./routes/subject')
+const Student = require('./routes/student')
+app.set('view engine', 'ejs')
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json())
+app.use('/', Index)
+app.use('/teacher', Teacher)
+app.use('/subject', Subject)
+app.use('/student', Student)
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
